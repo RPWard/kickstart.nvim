@@ -32,8 +32,8 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Set colorcolumn at 80 chars
-vim.cmd [[ set colorcolumn=80 ]]
+-- Set colorcolumn at 100 chars
+vim.cmd [[ set colorcolumn=100 ]]
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -644,11 +644,17 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'black' },
+        go = { 'golines' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        golines = {
+          args = { '--max-len=100' },
+        },
       },
     },
   },
